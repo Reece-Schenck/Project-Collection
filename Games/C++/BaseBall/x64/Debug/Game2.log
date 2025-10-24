@@ -1,0 +1,13 @@
+﻿  Ball.cpp
+  Bat.cpp
+  Pitcher.cpp
+  main.cpp
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(310,85): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(310,70): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(338,73): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(338,58): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(368,77): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(368,62): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game2\code\main.cpp(432,40): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Generating Code...
+  Game2.vcxproj -> C:\Users\goldh\source\repos\Schenck-Work\Projects\x64\Debug\Game2.exe

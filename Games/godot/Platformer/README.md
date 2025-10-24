@@ -1,0 +1,24 @@
+Changes:
+  - Reworked level 1 and added level 2 & level 3
+      - player spawns at start gate
+      - Levels end at the flag
+          - touching the flag starts the next level
+      - Player respaws at the fence they spawned in on that specific level
+      - Added a respawn message that goes away after a shot period of time
+      - All levels are possible
+  - Added player camera
+  - Added player animations
+      - run, jump, idle, and roll
+  - Added roll power/movement to player
+      - doubles player speed while rolling (holding 'down' while on the ground)
+  - added enemy type that stays on platforms using rayCasts
+      - Enemies have walking animations
+      - They can be jumped on to die
+      - kills the player when hit on the bottom or sides
+  - added floating enemy that cannot be killed
+      - Enemies have a spinning animation
+      - kills the played when touched on any side
+  - added water hazards and spikes
+      - kills the player when touched
+  - expanded player coltrols
+      - added full wasd and arrowkey movement

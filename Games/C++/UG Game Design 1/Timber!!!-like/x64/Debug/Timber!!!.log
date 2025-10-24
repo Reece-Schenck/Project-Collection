@@ -1,0 +1,45 @@
+﻿  Timber.cpp
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(36,43): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(36,28): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(68,57): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(68,39): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(367,34): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(397,34): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(503,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(507,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(533,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(537,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(561,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(564,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(586,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(590,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(614,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(618,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(642,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(646,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\Timber!!!\Timber.cpp(674,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Timber!!!.vcxproj -> C:\Users\goldh\source\repos\Schenck-work\GameProg1\x64\Debug\Timber!!!.exe

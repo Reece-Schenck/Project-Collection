@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct041pgdwnf60"]
+
+[ext_resource type="Texture2D" uid="uid://cpk04018ncdgg" path="res://art/PNG/Items/redGem.png" id="1_11vea"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_203np"]
+[ext_resource type="Texture2D" uid="uid://f5hcgoq4pxfo" path="res://art/PNG/Items/outlineGem.png" id="2_fdexs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0482b"]
+
+[node name="enemy_bullet" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_203np")
+speed = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_11vea")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_fdexs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0482b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(1.4, 1.4)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

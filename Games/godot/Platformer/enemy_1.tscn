@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://cugilf582nt8v"]
+
+[ext_resource type="Script" path="res://enemy_1.gd" id="1_t6wf2"]
+[ext_resource type="Texture2D" uid="uid://sys72f4avvl6" path="res://art/PNG/Enemies/enemyWalking_1.png" id="1_tg50g"]
+[ext_resource type="Texture2D" uid="uid://bq0ipawftlr7h" path="res://art/PNG/Enemies/enemyWalking_2.png" id="2_m0b83"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibosj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tg50g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m0b83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ev5kp"]
+radius = 16.0
+height = 42.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ts4"]
+size = Vector2(27, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtcjp"]
+size = Vector2(46, 37)
+
+[node name="enemy 1" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_t6wf2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ibosj")
+
+[node name="bodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ev5kp")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(20, -22)
+target_position = Vector2(0, 60)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(-20, -22)
+target_position = Vector2(0, 60)
+collision_mask = 2
+
+[node name="Top" type="Area2D" parent="."]
+
+[node name="headCollision" type="CollisionShape2D" parent="Top"]
+position = Vector2(0.5, -23)
+shape = SubResource("RectangleShape2D_l5ts4")
+debug_color = Color(0.988235, 0, 0.301961, 0.419608)
+
+[node name="Body" type="Area2D" parent="."]
+
+[node name="bodyCollision" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_qtcjp")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]

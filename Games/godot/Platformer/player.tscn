@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://burnul2rq337i"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_rs5t4"]
+[ext_resource type="Texture2D" uid="uid://dphfevorexuac" path="res://art/PNG/Players/Player Green/playerGreen_stand.png" id="2_8wfik"]
+[ext_resource type="Texture2D" uid="uid://b7a8uatjrcixf" path="res://art/PNG/Players/Player Green/playerGreen_roll.png" id="2_dan78"]
+[ext_resource type="Texture2D" uid="uid://dd8wwmlr8ac0l" path="res://art/PNG/Players/Player Green/playerGreen_walk1.png" id="2_qlaye"]
+[ext_resource type="Texture2D" uid="uid://dblkr48i14cw6" path="res://art/PNG/Players/Player Green/playerGreen_up1.png" id="3_08pvj"]
+[ext_resource type="Texture2D" uid="uid://bg5m1yq6epnf4" path="res://art/PNG/Players/Player Green/playerGreen_up2.png" id="4_cgf26"]
+[ext_resource type="Texture2D" uid="uid://dcipu0r7sjcwc" path="res://art/PNG/Players/Player Green/playerGreen_walk2.png" id="5_bwldj"]
+[ext_resource type="Texture2D" uid="uid://dgqhacjdh1286" path="res://art/PNG/Players/Player Green/playerGreen_walk3.png" id="6_ysk88"]
+[ext_resource type="PackedScene" uid="uid://bigl4xtqwhefq" path="res://HUD.tscn" id="9_6a6x3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_an6he"]
+radius = 18.0
+height = 48.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lw1w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wfik")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_08pvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cgf26")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dan78")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlaye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bwldj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ysk88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bwldj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_rs5t4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_an6he")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lw1w3")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("9_6a6x3")]
+
+[connection signal="hit" from="." to="HUD" method="_on_player_hit"]

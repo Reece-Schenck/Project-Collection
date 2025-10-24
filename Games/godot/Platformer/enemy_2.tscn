@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cggnic0ovbaa4"]
+
+[ext_resource type="Script" path="res://enemy_2.gd" id="1_7mxdr"]
+[ext_resource type="Texture2D" uid="uid://ogw17dsfj3pn" path="res://art/PNG/Enemies/enemyFloating_1.png" id="2_ad1l3"]
+[ext_resource type="Texture2D" uid="uid://07xd01ned5y8" path="res://art/PNG/Enemies/enemyFloating_2.png" id="3_67yjt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0rnj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ad1l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_67yjt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvgyo"]
+radius = 28.0179
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6m6de"]
+radius = 30.0
+
+[node name="enemy 2" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_7mxdr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u0rnj")
+speed_scale = 1.25
+
+[node name="bodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yvgyo")
+
+[node name="Body" type="Area2D" parent="."]
+
+[node name="bodyCollision" type="CollisionShape2D" parent="Body"]
+shape = SubResource("CircleShape2D_6m6de")
+debug_color = Color(0.984314, 0, 0.329412, 0.419608)
+
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]

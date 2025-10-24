@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6owr3tt6sxsx"]
+
+[sub_resource type="GDScript" id="GDScript_npned"]
+script/source = "extends Area2D
+
+func _on_body_body_entered(body):
+	if(body.get_name() == \"Player\"):
+		body.respawn()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdh27"]
+
+[node name="finish" type="Area2D"]
+script = SubResource("GDScript_npned")
+
+[node name="finishCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sdh27")
+debug_color = Color(0, 0.647059, 0.294118, 0.419608)

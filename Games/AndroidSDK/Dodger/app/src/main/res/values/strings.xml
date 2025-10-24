@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hello_world">Hello World</string>
+    <string name="dodger">Dodger</string>
+    <string name="Dodger" />
+    <string name="DODGER" />
+    <string name="start">Start</string>
+    <string name="Start" />
+</resources>

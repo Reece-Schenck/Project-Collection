@@ -1,0 +1,77 @@
+﻿  LevelManager.cpp
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(89,26): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(89,26): warning C4267:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(89,26): warning C4267:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(89,26): warning C4267:             T=int
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(89,26): warning C4267:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,31): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,31): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,31): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,31): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,31): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,16): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,16): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,16): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,16): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(138,16): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,45): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,45): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,45): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,45): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,30): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,30): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,30): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(141,30): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,59): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,59): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,59): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,59): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,30): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,30): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,30): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(144,30): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,47): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,47): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,47): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,47): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,47): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,17): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,17): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,17): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(147,17): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(153,19): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(153,19): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(153,19): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(153,19): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(153,19): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,27): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,27): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,27): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,27): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,27): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,14): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,14): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,14): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,14): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(156,14): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,35): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,35): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,35): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,35): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,35): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,14): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,14): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,14): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,14): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(159,14): warning C4244:         ]
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(162,27): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(162,27): warning C4244:         with
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(162,27): warning C4244:         [
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(162,27): warning C4244:             T=float
+C:\Users\goldh\source\repos\Schenck-work\GameProg1\ThomasWasLate\LevelManager.cpp(162,27): warning C4244:         ]
+  ThomasWasLate.vcxproj -> C:\Users\goldh\source\repos\Schenck-work\GameProg1\x64\Debug\ThomasWasLate.exe

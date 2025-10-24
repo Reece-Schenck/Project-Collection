@@ -1,2 +1,2 @@
 # Project-Collection
-A collection of all my projects from Marist
+A collection of all my projects from Marist University

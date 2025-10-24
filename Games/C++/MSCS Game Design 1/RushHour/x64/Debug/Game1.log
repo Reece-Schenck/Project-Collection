@@ -1,0 +1,13 @@
+﻿  Rush_Hour.cpp
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(289,34): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(311,34): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(373,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(377,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(406,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(410,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(434,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(438,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(465,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(469,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\goldh\source\repos\Schenck-Work\Projects\Game1\code\Rush_Hour.cpp(500,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Game1.vcxproj -> C:\Users\goldh\source\repos\Schenck-Work\Projects\x64\Debug\Game1.exe

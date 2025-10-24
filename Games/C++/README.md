@@ -1,1 +1,3 @@
-# Games made with c++
+# All Games made with c++
+
+organized by class

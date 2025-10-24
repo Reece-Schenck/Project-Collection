@@ -1,0 +1,898 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT 435
+% Spring Semester
+% Lab/Assignment/Project 5
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+% Further modified by Brian Gormanly - brian.gormanly@marist.edu (2023.1)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+%\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+%\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+\usepackage{titlesec}
+\usepackage[margin=1.25in]{geometry}
+
+\usepackage{fancyhdr} % Custom headers and footers
+%\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 435 - Spring 2023 - Prof. Gormanly} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Lab Five  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Reece Schenck \\ \normalsize Reece.Schenck@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\titleformat{\section}
+  {\normalfont\fontsize{15}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{11}{11}\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+\maketitle % Print the title
+
+\section{Program}
+
+\subsection{SSSP}
+This code is what ended up being used in the main class. It was the base that code is build from. It is not used but I left it here anyways.
+
+See Lines 1-58 of the SSSP class.(Find under Appendix/Code/SSSP).
+
+\subsection{Spices}
+Holds the name, price, and quantity of the spices
+
+
+See Lines 1-25 of the spices class.(Find under Appendix/Code/spices)
+
+\subsection{Bag}
+Holds the max capacity for the bag
+
+\newline
+
+\emph{\normalfont 
+See Lines 3-10 of the bag class.(Find under Appendix/Code/bag)}
+
+\subsection{Greed}
+This class uses the bag and spice class to find the most valuable spice, take as much as allowed until the bag is full or the next highest spice is needed and then returns the total value that can be taken.
+
+\newline
+
+\emph{\normalfont 
+See Lines 6-40 of the greed class.(Find under Appendix/Code/greed)}
+
+\subsection{WeightedDirectionalGraph}
+I had ChatGPT help me quite a bit for this part. I used my graph code from the last project as a base and then implemented/changed/added functions to the class with what ChatGPT gave me. From there I edited the code to make it work with the information being given through the text files. This class creates edges and vertices and connects them as they are added through the add function. Then(This is the part where I used  ChatGPT the most), Then using the added edges and their weights the shortest path from the source vertex to all vertices can be found.
+
+\newline
+
+\emph{\normalfont
+See Lines 7-124 of the WeightedDirectionalGraph class.(Find under Appendix/Code/WeightedDirectionalGraph)}
+
+\subsection{Main}\label{operations}
+
+\subsubsection{Imports}
+
+These are the imports I needed for my code in Main:
+\newline
+import java.util.ArrayList;
+\newline
+import java.util.Arrays;
+\newline
+import java.io.BufferedReader;
+\newline
+import java.io.FileReader;
+\newline
+import java.io.IOException;
+\newline
+import java.util.Random;
+\newline
+import java.util.List;
+\newline
+import java.util.*;
+
+
+These Are used for reading/writing from the text file into and Array, and basic array / array list manipulation.
+
+See Lines 1-8 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{Read/Write Text Files}
+I used the same code from Lab 2 with slight changes as there are 2 files instead of 1
+
+See Lines 9-98 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{Weighted Directional Graph Use}
+The implementation of this class is similar to that of the graph class from the last lab, as That was the code I based this part on. The only major difference was adding the weight value to the edge and then calling SSSP.
+
+See Lines 180-238 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{SSSP}
+This is used with the weighted directional graphs. I did make a class of this but for some reason I kept getting errors, once I moved it to main everything was fixed. Also this is different from the class version as I needed to tweak a few extra parts of the code, but I left the class in to show what this part is based on.
+
+See Lines 317-370 of the Main class.(Find under Appendix/Code/Main)
+(Appendix/Code/SSSP for original class)
+
+\subsubsection{Greedy Knapsack}
+I split the arrays similarly to that of the Weighted Directional Graph Use above, but there were many bigger changes this time. I split the text into two parts, that relating to the spices and that relating to the bag. Each part then had to be split more so I could extract all the data and add them to the proper lists and objects. After which I traverse every bag finding the maximum value it can take with the given spice's prices and amounts.
+
+
+See Lines 140-318 of the Main class.(Find under Appendix/Code/Main)
+
+\section{Unresolved Issues and Errors}
+I had a few errors during this lab that I was unable to fix. One error is with the Weighted Directed Graph. Sometimes the path and cost seem to go back to their defaults for no reason. I've messed around with this part of the code for hours and managed to reduce how much the error appears, but it is still prevalent. I also had errors with the greedy algorithm not fully running. Sometimes it runs fully with no issues, and then the next time it only runs halfway through the code. I don't know what is causing this and I could not fix it.
+
+%----------------------------------------------------------------------------------------
+%   Results (Table)
+%----------------------------------------------------------------------------------------
+
+\section{Results}
+*results may vary*
+\begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+ \underline{Algorithm} & \underline{Time in Nanoseconds} \\
+ Weighted+Directed Graph     & 4488600 \\ 
+ Greedy Algorithm      & 2695600.00 \\  
+ \hline
+\end{tabular}
+\end{center}
+For the Weighted and Directed graph, My algorithm is quadratic which makes it less efficient than it could have been(But that was the only way I could figure out how to get it working), so that explains the longer than usual run times
+
+\newline
+
+For the greedy algorithm, the way I implemented it was quadratic time which is not the most efficient way of doing it(But that was the only way I could figure out how to get it working), so that explains the long run time
+
+%----------------------------------------------------------------------------------------
+%   REFERENCES
+%----------------------------------------------------------------------------------------
+% The following two commands are all you need in the initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{lab4} 
+% You must have a proper ".bib" file and remember to run:
+% latex bibtex latex latex
+% to resolve all references.
+
+
+%----------------------------------------------------------------------------------------
+%   Appendix (Code)
+%----------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+\subsection{Code}
+
+\subsubsection{Spices}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+public class spices {
+
+    String name;
+    float price;
+    int qty;
+
+    public spices(String name, float price, int qty) {
+        this.name = name;
+        this.price = price;
+        this.qty = qty;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public float getPrice(){
+        return price;
+    }
+
+    public int getqty(){
+        return qty;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{WeightedDirectedGraph}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.util.*;
+
+// I had trouble converting my last graph class from undirected to directed
+// so I used chat help to start me off ands I edited and added from there
+public class WeightedDirectedGraph {
+    // ChatGPT used hashmaps so that's why I used them
+    private Map<Integer, List<Edge>> adjList;
+    
+    // creates hashmap
+    public WeightedDirectedGraph() {
+        adjList = new HashMap<>();
+    }
+    
+    // adds vertex
+    public void addVertex(int v) {
+        if(!adjList.containsKey(v)){
+            adjList.put(v, new ArrayList<>());
+        }
+    }
+
+    // returns the number of vertecies
+    public int getNumVertices() {
+        return adjList.size();
+    }
+    
+    // adds edge taking in (source, destination, weight)
+    // adds verticies if they haven't already been added
+    public void addEdge(int src, int dest, int weight) {
+        if(!adjList.containsKey(src)){
+            addVertex(src);
+        }
+        if(!adjList.containsKey(dest)){
+            addVertex(dest);
+        }
+        (adjList.get(src)).add(new Edge(src, dest, weight));
+    }
+
+    // returns the number of edges
+    public List<Edge> getEdges(int u) {
+        return adjList.get(u);
+    }
+    
+    // ChatGPT used priority queue for this part so that is why it is used
+    // This was the biggest part that ChatGPT helped me with for this class
+    // very little was changed in the shortest path part
+    public List<Integer> shortestPath(int source) {
+        Map<Integer, Integer> dist = new HashMap<>();
+        Map<Integer, Integer> prev = new HashMap<>();
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        
+        for(int v : adjList.keySet()){
+            dist.put(v, Integer.MAX_VALUE);
+            prev.put(v, null);
+        }
+        dist.put(source, 0);
+        pq.offer(new Node(source, 0));
+        
+        while(!pq.isEmpty()){
+            Node curr = pq.poll();
+            int currDist = curr.dist;
+            int currVertex = curr.vertex;
+            
+            if(currDist > dist.get(currVertex)){
+                continue;
+            }
+            
+            for(Edge e : adjList.get(currVertex)){
+                int nextVertex = e.dest;
+                int nextDist = currDist + e.weight;
+                
+                if(nextDist < dist.get(nextVertex)){
+                    dist.put(nextVertex, nextDist);
+                    prev.put(nextVertex, currVertex);
+                    pq.offer(new Node(nextVertex, nextDist));
+                }
+            }
+        }
+        
+        List<Integer> path = new ArrayList<>();
+        int curr = 1;
+        while(curr != source && prev.get(curr) != null){
+            path.add(curr);
+            curr = prev.get(curr);
+        }
+        path.add(source);
+        Collections.reverse(path);
+        return path;
+    }
+    
+    // I left this untouched from what ChatGPT gave me
+    private static class Node implements Comparable<Node> {
+        private int vertex;
+        private int dist;
+        
+        public Node(int v, int d) {
+            vertex = v;
+            dist = d;
+        }
+        
+        public int compareTo(Node other) {
+            return Integer.compare(dist, other.dist);
+        }
+    }
+    
+    // basic edge class that holds source destination and weight
+    static class Edge {
+        private int src;
+        private int dest;
+        private int weight;
+        
+        public Edge(int s, int d, int w) {
+            src = s;
+            dest = d;
+            weight = w;
+        }
+
+        // gets the weight
+        public int getWeight(){
+            return weight;
+        }
+
+        // gets destination vertex
+        public int getTo(){
+            return dest;
+        }
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{SSSP}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.util.*;
+
+public class SSSP {
+    public static void SSSP(WeightedDirectedGraph graph, int source){
+        int n = graph.getNumVertices();
+        
+        // Initialize the distance and visited arrays
+        int[] dist = new int[n];
+        boolean[] visited = new boolean[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[source] = 0;
+
+        // Initialize the parent array
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+
+        // Create a priority queue and add the source vertex
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(i -> dist[i]));
+        pq.offer(source);
+
+        // Runs the algorithm
+        while(!pq.isEmpty()){
+            int u = pq.poll();
+            visited[u] = true;
+            
+            for(WeightedDirectedGraph.Edge edge : graph.getEdges(u)){
+                // gets destination vertex
+                int v = edge.getTo();
+                // gets the weight
+                int weight = edge.getWeight();
+                
+                if(!visited[v] && dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]){
+                    dist[v] = dist[u] + weight;
+                    parent[v] = u;
+                    pq.offer(v);
+                }
+            }
+        }
+
+        // Prints the results
+        // print formatting from ChatGPT
+        for(int i = 0; i < n; i++){
+            if(i != source){
+                System.out.printf("Shortest path from %d to %d: cost=%d, path=", source, i, dist[i]);
+                printPath(parent, i);
+                System.out.println();
+            }
+        }
+    }
+
+    private static void printPath(int[] parent, int v) {
+        if(v == -1){
+            return;
+        }
+        printPath(parent, parent[v]);
+        System.out.print(v + " ");
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Bag}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+public class bag {
+    
+    int capacity;
+
+    public bag(int capacity){
+        this.capacity = capacity;
+    }
+
+    public int getCapacity(){
+        return capacity;
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Greed}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.util.ArrayList;
+import java.util.List;
+
+public class greed {
+    // tracks total
+    double total;
+
+    // tracks where the highest was found
+    int index;
+
+    public greed(bag bag, List<spices> spices){
+        total = 0;
+        int space = bag.getCapacity();
+        float highest = 0;
+        while(space>0){
+            for(int i=0;i<spices.size()-1;i++){
+                if(spices.get(i).getPrice()>highest){
+                    highest = spices.get(i).getPrice();
+                    index = i;
+                }
+            }
+            int amount = spices.get(index).getqty();
+            while(amount>0){
+                total = total + highest;
+                space--;
+                amount--;
+                if(space == 0){
+                    break;
+                }
+                // removes emptied spices
+                if(amount == 0){
+                    spices.remove(index);
+                }
+            }
+            highest = 0;
+        }
+    }
+
+    public double getTotal(){
+        return total;
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Main}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
+import java.util.*;
+
+public class Main {
+
+    /* 
+      Edited the graphs2 file taking out the results comments
+      This allows me to cleanly split the graphs apart from one another
+
+      Lines Removed:
+      -- Results. Check yours against these.
+      -- 1 --> 2 cost is  2; path: 1 --> 4 --> 3 --> 2
+      -- 1 --> 3 cost is  4; path: 1 --> 4 --> 3
+      -- 1 --> 4 cost is  7; path: 1 --> 4
+      -- 1 --> 5 cost is -2; path: 1 --> 4 --> 3 --> 2 --> 5
+
+      also changed this line to avoid splitting errors:
+      -- directed 7-vertex v1 -- the "Tyler" graph.
+      to
+      -- directed 7-vertex v1 aka the "Tyler" graph.
+
+      also also made sure there was only one space between
+      last edge and weight for the same reason
+
+
+      Edited the spice file taking out the first comment
+      Also removed the ';'s from the lnapsacks 
+      and made all spaces size 1 for concistancy
+      reasoning same as above
+
+      Line removed:
+      -- She who controls the spice controls the universe.
+    */
+
+    public static void main(String[] args) {
+        //Read and Write text files into arrays
+        //same code from other labs, changed slightly for reading graphs2 and spice
+
+        //This wasn't working for me: 
+        String filename = "graphs2.txt";
+
+        //It only worked when hard coded, so this is what I used for testing:
+        //String filename = "C:\\Users\\goldh\\OneDrive\\Documents\\GitHub\\RSchenck-435\\Lab 5\\graphs2.txt";
+
+        ArrayList<String> lines = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line = reader.readLine();
+            while (line != null) {
+                lines.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] linesArrayGraph = lines.toArray(new String[lines.size()]);
+        //prints out the read lines, used for testing
+        //System.out.println("Lines read from file:");
+        //for(String l : linesArrayGraph){
+        //    System.out.println(l);
+        //}
+
+        //This wasn't working for me: 
+        String filename2 = "spice.txt";
+
+        //It only worked when hard coded, so this is what I used for testing:
+        //String filename2 = "C:\\Users\\goldh\\OneDrive\\Documents\\GitHub\\RSchenck-435\\Lab 5\\spice.txt";
+
+        ArrayList<String> lines2 = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename2));
+            String line = reader.readLine();
+            while (line != null) {
+                lines2.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // This code was taken from Lab4 and edited to fit graph2 and spice
+        String[] linesArraySpice = lines2.toArray(new String[lines2.size()]);
+        //prints out the read lines, used for testing
+        //System.out.println("Lines read from file:");
+        //for(String l : linesArraySpice){
+        //    System.out.println(l);
+        //}
+
+        
+        String keyPhraseSpice = "--";
+        List<String[]> splitArraysSpice = new ArrayList<>();
+        List<String> currentArraySpice = new ArrayList<>();
+        for(String str : linesArraySpice){
+            if(str.startsWith(keyPhraseSpice)){
+                splitArraysSpice.add(currentArraySpice.toArray(new String[currentArraySpice.size()]));
+                currentArraySpice.clear();
+            }else{
+                // gets rid of the comments above each new graph
+                // also new graph line is not added to split array
+                // found .startswith from https://docs.oracle.com/javase/tutorial/java/data/comparestrings.html
+                if(str.startsWith(keyPhraseSpice) == false){
+                    currentArraySpice.add(str);
+                }
+            }
+        }
+        // Adds the last array
+        splitArraysSpice.add(currentArraySpice.toArray(new String[currentArraySpice.size()]));
+
+        // for testing
+        //System.out.println("Original Array: " + Arrays.toString(originalArray));
+        //System.out.println("Original Array: " + Arrays.toString(linesArraySpice));
+
+        // first index will always be a useless blank array because
+        // of the removal of the comments leaving the array at size 0
+        splitArraysSpice.remove(0);
+
+        // for testing
+        //System.out.println("Split Arrays:");
+        //for(String[] splitArray : splitArraysSpice){
+        //    System.out.println(Arrays.toString(splitArray));
+        //}
+        //System.out.println(Arrays.toString(splitArraysSpice.get(0)));
+
+
+        /*
+           takes information from the strings in graphs2.txt
+           and turns them into usable arrays of strings
+           that are stored in the array list splitArrays
+        */
+
+        
+        String keyPhrase = "new graph";
+        List<String[]> splitArrays = new ArrayList<>();
+        List<String> currentArray = new ArrayList<>();
+        for(String str : linesArrayGraph){
+            if(str.equals(keyPhrase)){
+                splitArrays.add(currentArray.toArray(new String[currentArray.size()]));
+                currentArray.clear();
+            }else{
+                // gets rid of the comments above each new graph
+                // also new graph line is not added to split array
+                // found .startswith from https://docs.oracle.com/javase/tutorial/java/data/comparestrings.html
+                if(str.startsWith("--") == false){
+                    currentArray.add(str);
+                }
+            }
+        }
+        // Adds the last array
+        splitArrays.add(currentArray.toArray(new String[currentArray.size()]));
+
+        // for testing
+        //System.out.println("Original Array: " + Arrays.toString(originalArray));
+        //System.out.println("Original Array: " + Arrays.toString(linesArrayGraph));
+
+        // first index will always be a useless blank array because
+        // of the removal of the comments and array splits at 'new graph'
+        splitArrays.remove(0);
+
+        // for testing
+        //System.out.println("Split Arrays:");
+        //for(String[] splitArray : splitArrays){
+        //    System.out.println(Arrays.toString(splitArray));
+        //}
+        //System.out.println(Arrays.toString(splitArrays.get(1)));
+
+
+        // taken from lab 4 and edited to wrok with weighted and directed graphs
+        // makes the directed and weighted graph
+        System.out.println("");
+        System.out.println("Directed and Weighted Graph:");
+        // start is used for handeling starting vertecies of 1 or 0
+        int start = 1;
+        double totalTime = 0;
+        long startTime;
+        long endTime;
+        long elapsedTime;
+        int timesRun = 0;
+        for(String[] splitArray : splitArrays){
+            // start index defaults to 0
+            int vertexNum = 0;
+            for(String str : splitArray){
+                // updates the start value for traversals based off the first index
+                // this was the only way I could figure out to hanled having
+                // starting vertecies of both 0 and 1 in the same file
+                if(str.equals("add vertex 0")){
+                    start = 0;
+                }
+                // used for testing
+                //System.out.println("start value: " + start);
+                if(str.startsWith("add vertex")){
+                    vertexNum++;
+                }
+            }
+            System.out.println("");
+            // used for testing
+            //System.out.println("Graph with " + vertexNum + " vertecies");
+            WeightedDirectedGraph graph = new WeightedDirectedGraph();
+            for(String str : splitArray){
+                int num1;
+                int num2;
+                int weight;
+                if(str.startsWith("add edge")){
+                    String[] split = str.split(" ");
+                    // used for testing
+                    //System.out.println(split[5]);
+                    // .parseInt was found here:
+                    // https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+                    num1 = Integer.parseInt(split[2]);
+                    num2 = Integer.parseInt(split[4]);
+                    weight = Integer.parseInt(split[5]);
+                    graph.addEdge(num1, num2, weight);
+                }
+            }
+            startTime = System.nanoTime();
+            SSSP(graph, 1);
+            endTime = System.nanoTime();
+            elapsedTime = endTime - startTime;
+            totalTime = totalTime + elapsedTime;
+            System.out.println("Time in nanoseconds: ");
+            System.out.println(elapsedTime);
+
+            timesRun++;
+        }
+        System.out.println("");
+        double averageTime = totalTime / timesRun;
+        System.out.println("Average time in nanoseconds: ");
+        System.out.format("%.2f%n", averageTime);
+
+
+        
+        // start knapsack
+        System.out.println("");
+        System.out.println("Knapsack:");
+
+        double totalTime2 = 0;
+        long startTime2;
+        long endTime2;
+        long elapsedTime2;
+        int timesRun2 = 0;
+        List<spices> allSpices = new ArrayList<>();
+        List<bag> allBags = new ArrayList<>();
+        for(String[] splitArraySpice : splitArraysSpice){
+            for(String str : splitArraySpice){
+                String name = "";
+                float price = 0;
+                int qty = 0;
+                if(str.startsWith("spice")){
+                    String[] spice1 = str.split(";");
+                    for(String str2 : spice1){
+                        if(str2.startsWith("spice name")){
+                            String[] spiceData = str2.split(" ");
+                            name = spiceData[3];
+                        }
+                        if(str2.startsWith("total_price")){
+                            String[] spiceData = str2.split(" ");
+                            price = Float.parseFloat(spiceData[2]);
+                        }
+                        if(str2.startsWith("qty")){
+                            String[] spiceData = str2.split(" ");
+                            qty = Integer.parseInt(spiceData[2]);
+                        }
+                        spices spice = new spices(name, price, qty);
+                        allSpices.add(spice);
+                    }
+                }
+            }
+
+            for(String str : splitArraySpice){
+                int capacity = 0;
+                if(str.startsWith("knapsack")){
+                    String[] bagData = str.split(" ");
+                    capacity = Integer.parseInt(bagData[3]);
+                    bag bag = new bag(capacity);
+                    // used for testing
+                    //System.out.println("bag added " + bag.getCapacity());
+                    allBags.add(bag);
+                }
+            }
+        }
+
+        for(bag bag : allBags){
+            startTime2 = System.nanoTime();
+            System.out.println("Total for bag of size: " + bag.getCapacity());
+
+            greed steal = new greed(bag , allSpices);
+            System.out.println(steal.getTotal());
+
+            endTime2 = System.nanoTime();
+            elapsedTime2 = endTime2 - startTime2;
+            totalTime2 = totalTime2 + elapsedTime2;
+            System.out.println("Time in nanoseconds: ");
+            System.out.println(elapsedTime2);
+
+            timesRun2++;
+        }
+
+        System.out.println("");
+        double averageTime2 = totalTime2 / timesRun2;
+        System.out.println("Average time in nanoseconds: ");
+        System.out.format("%.2f%n", averageTime2);
+        
+    }
+
+
+    // caused errors when not placed here
+    public static void SSSP(WeightedDirectedGraph graph, int source){
+        int n = graph.getNumVertices();
+            
+        // Initialize the distance and visited arrays
+        int[] dist = new int[n];
+        boolean[] visited = new boolean[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[source] = 0;
+    
+        // Initialize the parent array
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+    
+        // Create a priority queue and add the source vertex
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(i -> dist[i]));
+        pq.offer(source);
+    
+        // Runs the algorithm
+        while(!pq.isEmpty()){
+            int u = pq.poll();
+            visited[u] = true;
+                
+            for(WeightedDirectedGraph.Edge edge : graph.getEdges(u)){
+                // gets destination vertex
+                int v = edge.getTo()-1;
+                // gets the weight
+                int weight = edge.getWeight();
+                
+                if(!visited[v] && (dist[u] != Integer.MAX_VALUE) && (dist[u] + weight < dist[v])){
+                    dist[v] = dist[u] + weight;
+                    parent[v] = u;
+                    pq.offer(v);
+                }
+            }
+        }
+    
+        // Prints the results
+        // print formatting from ChatGPT
+        for(int i=1; i<n+1; i++){
+            if(i != source){
+                System.out.printf("Shortest path from %d to %d: cost=%d, path=", source, i, dist[i-1]);
+                printPath(parent, i);
+                System.out.println();
+            }
+        }
+    }
+    
+    private static void printPath(int[] parent, int v) {
+        if(v == -1){
+            return;
+        }
+        printPath(parent, parent[v-1]);
+        System.out.print(v + " ");
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Text File (graphs2)}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+It's 83 lines of text/code dimensions of the graphs I am printing and searching
+
+
+\subsubsection{Text File (spice)}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+It's 12 lines of text/code that give the data on the spices and bags I am using to compute
+
+\end{document}

@@ -1,0 +1,862 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT 435
+% Some Semester
+% Lab/Assignment/Project 4
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+% Further modified by Brian Gormanly - brian.gormanly@marist.edu (2023.1)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+%\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+%\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+\usepackage{titlesec}
+\usepackage[margin=1.25in]{geometry}
+
+\usepackage{fancyhdr} % Custom headers and footers
+%\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 435 - Spring 2023 - Prof. Gormanly} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Lab Four  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Reece Schenck \\ \normalsize Reece.Schenck@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\titleformat{\section}
+  {\normalfont\fontsize{15}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{11}{11}\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+\maketitle % Print the title
+
+\section{Program}
+
+\subsection{LinkedGraph}
+
+This class is very similar to the Graph class, and that is because it was based off of the graph class with the only difference being that it uses another class that is housed in this file, the vertex class. For this reason I separated it from the Graph class to make the code easier to read and understand. As far as creating and adding foes, it is almost identical to Graph except I use the vertex class to hold the data. The major differences come in with the depth and breadth search functions. For the depth function I used chat for some help as I could not get this code to work. I only tweaked a few things from what chat gave me for the code. I then used the depth search function as a guide to make the breath search function and made the necessary changes to make it the correct search.
+
+See Lines 8-90 of the linkedGraph class.(Find under Appendix/Code/linkedGraph).
+
+\subsection{Matrix}
+
+This class is used for printing out the graphs as matrices in conjunction with the graph class. This class creates 2d arrays that can be set with their respective values. The arrays can then be traversed to print out the values.
+
+
+See Lines 1-25 of the matrix class.(Find under Appendix/Code/matrix)
+
+\subsection{Node}
+This is used as the base building block of the binary search tree as it holds the value, left child, right child, and current path of each node added to the tree
+
+\newline
+
+\emph{\normalfont 
+See Lines 2-6 of the Node class.(Find under Appendix/Code/Node)}
+
+\subsection{BinarySearchTree}
+For the binary search tree, I used my code from a previous SD1 project as an outline and then heavily modified it to fit into the requirements of the lab. I was not able to get everything working(see unresolved issues and errors section), but other than that one issue it is fully functional. To start there is a root node that is compared to the new value being added. the new node is then moved along to the left or right based on if it is greater or less than the root. The path is updated and the node is compared again to the roots child. This continues until the node being added reaches a leaf(a node with no children) in which it will be inserted at the proper position. This class also searches the tree by traversing all the way down the left branch of the tree until it hits the bottom left most node. from there it works its way up the tree printing the nodes as it goes with the end result being a list of sorted nodes. The final part of this class is the search function. In this function the root node is compared to the value, after the target is found at the root, or the search is pulled to the left or the right of the tree depending on if it was greater or less than the root, this process is repeated with the next node until the target is found. This (ideally) significantly reduces the amount of comparisons required as there is a big chunk of nodes that can be ignored due to the structure of the tree, thus the comparison count is very low as well as the run time.
+
+\newline
+
+\emph{\normalfont 
+See Lines 10-114 of the BinarySearchTree class.(Find under Appendix/Code/BinarySearchTree)}
+
+\subsection{Graph}
+I did not know how to start tackling this part so I had ChatGPT make a skeleton class for me to heavily edit and fill in with the functions I needed. This class is used for both printing the graphs as matrices and adjacency lists. It takes in the number of vertices to created a linked array list witch then holds the values of edges given from the add function. From here It can return the linked lists as is since they are already in the form of an adjacency list, or they can be printed out as a matrix instead thanks to some slight tweaking.
+
+\newline
+
+\emph{\normalfont
+See Lines 4-34 of the Graph class.(Find under Appendix/Code/Graph)}
+
+\subsection{Main}\label{operations}
+
+\subsubsection{Imports}
+
+These are the imports I needed for my code in Main:
+\newline
+import java.util.ArrayList;
+\newline
+import java.util.Arrays;
+\newline
+import java.io.BufferedReader;
+\newline
+import java.io.FileReader;
+\newline
+import java.io.IOException;
+\newline
+import java.util.Random;
+\newline
+import java.util.List;
+
+
+These Are used for reading/writing from the text file into and Array, and basic array / array list manipulation.
+
+See Lines 1-7 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{Read/Write Text Files}
+I used the same code from Lab 2 with slight changes as there are 3 files instead of 1
+
+See Lines 9-101 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{BinarySearchTree Use}
+I first created a instance of the class and made the root node. I then traverse the magicitems array and insert each value into the tree, printing the path as I go. Once complete I do an inorder search. After that traverse the magicitems-find array and search the BST for each target value, printing the comparisons and time as I go. Finally I print the average time and comparisons.
+
+See Lines 105-130 of the Main class.(Find under Appendix/Code/Main)
+
+\subsubsection{Graph Forms}
+To start off I took the graph file and read it into an array. I took this array and split the array into a bunch of arrays of the individual graph information that I could use. These arrays were then stored into an arraylist. I then traverse the values in each array in the array list, one array at a time, and count the vertices. I then go through and add the edges to the Graph object. Once complete I create a matrix object and print out the graph as a matrix, I repeat for the rest of the arrays in the array list.
+
+\newline
+
+For the adjacency list The process starts the same with counting the vertices and adding the edges to a graph object. The difference is I then use the adjList function of graph to be able to traverse and print the graph as an adjacency list
+
+\newline
+
+For the object form I traversed each array in the array list. I set the default start value to 1 and have and if statement change it to 0 if the first vertex is a 0 instead of a 1. I then get the number of vertices. After that I create the linkedGraph object with the array and vertex number (plus 1) before adding the edges. Once complete for all arrays I call the depthFirstTraversal and print the time, then the breadthFirstTraversal and print the time for all graphs. Once done I print the average time for both traversals.
+
+See Lines 140-318 of the Main class.(Find under Appendix/Code/Main)
+
+\section{Unresolved Issues and Errors}
+The only real error that I was not able to figure out in this lab was printing the path to nodes in the BST. As of right now the path finding system I have only half works. I have tried so many different solutions and looked up numerous resources and I could not figure out how to fix it.
+
+%----------------------------------------------------------------------------------------
+%   Results (Table)
+%----------------------------------------------------------------------------------------
+
+\section{Results}
+*results may vary*
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ \underline{Algorithm} & \underline{Number of Comparisons} & \underline{Time in Nanoseconds} \\
+ BST Lookup     & 9.00 & 28530.95 \\ 
+ Depth Traversal      & - & 2574240.00 \\ 
+ Breadth Traversal     & - & 2111260.00 \\ 
+ \hline
+\end{tabular}
+\end{center}
+For the BST, the comparisons are low as the set of data being traversed is (ideally) cut in half each comparison, or at least reduced by a significant amount. This in turn makes the time to compute much shorter.
+
+\newline
+
+For the two searches, most of the time Breadth First should be the faster option. This is because it finds vertices as it goes down to the end node instead of traversing down a single path, which may be in-optimal, for each node.
+
+%----------------------------------------------------------------------------------------
+%   REFERENCES
+%----------------------------------------------------------------------------------------
+% The following two commands are all you need in the initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{lab4} 
+% You must have a proper ".bib" file and remember to run:
+% latex bibtex latex latex
+% to resolve all references.
+
+
+%----------------------------------------------------------------------------------------
+%   Appendix (Code)
+%----------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+\subsection{Code}
+
+\subsubsection{linkedGraph}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+/*
+  This class is similar to the graph class as it does similar things  
+  however, it requires some different functions that can't be easlity
+  implemented into the graph class like I did with the matrix and adjacency list
+  and so I am making this new class as to not make the other overly cluttered
+*/
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+// everything up to and including addEdge is almost identical to the graph class
+// the only major differences are the addition and use of the vertex class
+// I had a lot of errors implementing this that I used ChatGPT for help quite a bit
+public class linkedGraph {
+    private int numVertices;
+    private Vertex[] vertices;
+
+    public linkedGraph(String[] array, int numVertices){
+        this.numVertices = numVertices;
+        vertices = new Vertex[numVertices];
+        for(int i = 0; i < numVertices; i++){
+            vertices[i] = new Vertex(i);
+        }
+    }
+
+    public void addEdge(int u, int v){
+        vertices[u].addEdge(vertices[v]);
+        vertices[v].addEdge(vertices[u]);
+    }
+
+    /*
+      ChatGPT helped me with the public and private searches
+      as I was having numerous issues implementing them
+      I edited them slightly but the bulk of the code was given by ChatGPT for this part
+    */
+    public void depthFirstTraversal(int start){
+        boolean[] visited = new boolean[numVertices];
+        depthFirstTraversal(vertices[start], visited);
+        System.out.println("");
+    }
+
+    private void depthFirstTraversal(Vertex vertex, boolean[] visited){
+        visited[vertex.id] = true;
+        System.out.print(vertex.id + " ");
+        for(Vertex neighbor : vertex.getNeighbors()){
+            if(!visited[neighbor.id]){
+                depthFirstTraversal(neighbor, visited);
+            }
+        }
+    }
+
+    // 
+    public void breadthFirstTraversal(int start){
+        // stores if a vertex has been visited
+        boolean[] visited = new boolean[numVertices];
+        Queue<Vertex> queue = new LinkedList<>();
+        queue.add(vertices[start]);
+        visited[start] = true;
+
+        while(!queue.isEmpty()){
+            // Retrieves and removes the queue head, breaks loop if empty
+            Vertex vertex = queue.poll();
+            System.out.print(vertex.id + " ");
+            for(Vertex neighbor : vertex.getNeighbors()){
+                if(!visited[neighbor.id]){
+                    queue.add(neighbor);
+                    visited[neighbor.id] = true;
+                }
+            }
+        }
+    }
+}
+
+// I used ChatGPT to help me trouble shoot my code and 
+// it had the vertex class outside of linkedGraph on the same file
+class Vertex {
+    public int id;
+    public LinkedList<Vertex> neighbors;
+
+    public Vertex(int id){
+        this.id = id;
+        neighbors = new LinkedList<>();
+    }
+
+    public void addEdge(Vertex v){
+        neighbors.add(v);
+    }
+
+    public LinkedList<Vertex> getNeighbors(){
+        return neighbors;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{matrix}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+// Used ChatGPT to help with some troubleshooting
+public class matrix {
+    private int numRows;
+    private int numCols;
+    private int[][] data;
+    
+    public matrix(int numRows, int numCols){
+        this.numRows = numRows;
+        this.numCols = numCols;
+        data = new int[numRows][numCols];
+    }
+    
+    public void set(int i, int j, int value){
+        data[i][j] = value;
+    }
+    
+    public void print(){
+        for(int i = 0; i < numRows; i++){
+            for(int j = 0; j < numCols; j++){
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Graph}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.util.ArrayList;
+
+// Used ChatGPT to make the base graph class and then edited to fit my code
+public class Graph {
+    private int numVertices;
+    private ArrayList<ArrayList<Integer>> adjList;
+    
+    public Graph(int numVertices){
+        this.numVertices = numVertices;
+        adjList = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0; i < numVertices; i++){
+            adjList.add(new ArrayList<Integer>());
+        }
+    }
+    
+    public void addEdge(int u, int v){
+        adjList.get(u).add(v);
+        adjList.get(v).add(u);
+    }
+    
+    public matrix toMatrix(){
+        matrix matrix = new matrix(numVertices, numVertices);
+        for(int i = 0; i < numVertices; i++){
+            for(int j = 0; j < adjList.get(i).size(); j++){
+                int neighbor = adjList.get(i).get(j);
+                matrix.set(i, neighbor, 1);
+            }
+        }
+        return matrix;
+    }
+
+    public ArrayList<ArrayList<Integer>> toAdjList(){
+        return adjList;
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{BinarySearchTree}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+//Taken from previous SD1 project and heavily edited
+import java.util.*;
+
+public class BinarySearchTree{
+    //String path = "";
+
+    //public BinarySearchTree(){
+        //this.path = path;
+    //}
+    int comparisonTotal = 0;
+    double totalTime = 0;
+    long startTime;
+    long endTime;
+    long elapsedTime;
+
+    //inserts a new node to the proper position
+    public Node insert(Node newNode, String val){
+        if(newNode == null){
+            //path = "";
+            return NewNode(val);
+        }
+       
+        //if(val < newNode.value)
+        if(val.compareToIgnoreCase(newNode.value) < 0){
+            newNode.path = newNode.path + "L ";
+            newNode.left = insert(newNode.left, val);
+        }
+        //else if(val > newNode.value) 
+        else if(val.compareToIgnoreCase(newNode.value) > 0){
+            newNode.path = newNode.path + "R ";
+            newNode.right = insert(newNode.right, val);
+        }
+        //System.out.println(path);
+        return newNode;
+    }
+  
+    //creates a new node
+    public Node NewNode(String value){
+        Node newNode = new Node();
+
+        newNode.value = value;
+        newNode.left = null;
+        newNode.right = null;
+
+        newNode.path = "";
+
+        return newNode;
+    }
+
+    public String getPath(Node newNode){
+        return newNode.path;
+    }
+
+    public void clearPath(Node newNode){
+        newNode.path = "";
+    }
+
+
+    //traverses the tree and prints the elements inorder
+    //elements are seperated by a '.'
+    public void inorderSort(Node inNode){
+        //immediatly stops in node has no value
+        if(inNode == null){
+            return;
+        }
+    
+        inorderSort(inNode.left);
+        System.out.print(inNode.value + ". ");
+        inorderSort(inNode.right);
+    }
+
+    //add times + comparison
+    public void search(Node node, String target){
+        node.path = "";
+        int comparisons = 0;
+        startTime = System.nanoTime();
+        while(target.compareToIgnoreCase(node.value) != 0){
+            if(target.compareToIgnoreCase(node.value) < 0){
+                node.path = node.path + "L ";
+                node = node.left;
+            }else{
+                node.path = node.path + "R ";
+                node = node.right;
+            }
+            comparisons++;
+        }
+        endTime = System.nanoTime();
+        elapsedTime = endTime - startTime;
+        totalTime = totalTime + elapsedTime;
+
+        System.out.println("Path of " + target + ":");
+        System.out.println(node.path);
+
+        System.out.println("Number of comparisons: ");
+        System.out.println(comparisons);
+        comparisonTotal = comparisonTotal + comparisons;
+
+        System.out.println("Time in nanoseconds: ");
+        System.out.println(elapsedTime);
+    }
+
+    public void averageComp(int length){
+        double averageComp = comparisonTotal / length;
+        System.out.println("Average Comparisons: ");
+        System.out.format("%.2f%n", averageComp);
+
+    }
+
+    public void averageTime(int length){
+        double averageTime = totalTime / length;
+        System.out.println("Average time in nanoseconds:");
+        System.out.format("%.2f%n", averageTime);
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Node}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+// taken from previous SD1 project
+public class Node{
+    String value;
+    Node left;
+    Node right;
+    String path = "";
+}
+\end{lstlisting}
+
+
+\subsubsection{Main}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        //Read and Write text files into arrays
+        //same code from other labs, changed slightly for reading more files
+
+        //1st read file
+
+        //This wasn't working for me: 
+        String filename = "magicitems.txt";
+
+        //It only worked when hard coded, so this is what I used for testing:
+        //String filename = "C:\\Users\\goldh\\OneDrive\\Documents\\GitHub\\RSchenck-435\\Lab 4\\magicitems.txt";
+
+        ArrayList<String> lines = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line = reader.readLine();
+            while (line != null) {
+                lines.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] linesArrayMagic = lines.toArray(new String[lines.size()]);
+        //prints out the read lines, used for testing
+        //System.out.println("Lines read from file:");
+        //for (String l : linesArrayMagic) {
+        //    System.out.println(l);
+        //}
+
+
+        //2nd read file
+
+        //This wasn't working for me: 
+        String filename2 = "magicitems-find-in-bst.txt";
+
+        //It only worked when hard coded, so this is what I used for testing:
+        //String filename2 = "C:\\Users\\goldh\\OneDrive\\Documents\\GitHub\\RSchenck-435\\Lab 4\\magicitems-find-in-bst.txt";
+
+        ArrayList<String> lines2 = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename2));
+            String line = reader.readLine();
+            while (line != null) {
+                lines2.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] linesArrayFind = lines2.toArray(new String[lines2.size()]);
+        //prints out the read lines, used for testing
+        //System.out.println("Lines read from file:");
+        //for (String l : linesArrayFind) {
+        //    System.out.println(l);
+        //}
+
+
+        //3rd read file
+
+        //This wasn't working for me: 
+        String filename3 = "graphs1.txt";
+
+        //It only worked when hard coded, so this is what I used for testing:
+        //String filename3 = "C:\\Users\\goldh\\OneDrive\\Documents\\GitHub\\RSchenck-435\\Lab 4\\graphs1.txt";
+
+        ArrayList<String> lines3 = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename3));
+            String line = reader.readLine();
+            while (line != null) {
+                lines3.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String[] linesArrayGraph = lines3.toArray(new String[lines3.size()]);
+        //prints out the read lines, used for testing
+        //System.out.println("Lines read from file:");
+        //for (String l : linesArrayGraph) {
+        //    System.out.println(l);
+        //}
+
+
+        //creates a binary search tree
+        BinarySearchTree tree = new BinarySearchTree();
+
+        //Creates the root node
+        Node root = null;
+
+        //adds items to the tree and prints out the paths
+        //finding path is broken but IDK whats wrong or how to fix it
+        for(int i=0;i<linesArrayMagic.length;i++){
+            root = tree.insert(root, linesArrayMagic[i]);
+            System.out.println("Path to " + linesArrayMagic[i] + ":");
+            System.out.println(tree.getPath(root));
+            //doesn't fix the issues of path finding
+            //tree.clearPath(root);
+        }
+        
+        //prints out the elements of the tree through in-order traversal
+        //items are printed in order and are seperated by a '.'
+        tree.inorderSort(root);
+
+
+        for(int i=0;i<linesArrayFind.length;i++){
+            tree.search(root, linesArrayFind[i]);
+            System.out.println("");
+        }
+        tree.averageComp(linesArrayFind.length);
+        tree.averageTime(linesArrayFind.length);
+
+        /*
+           takes information from the strings in graphs1.txt
+           and turns them into usable arrays of strings
+           that are stored in the array list splitArrays
+        */
+
+        // This code was taken from ChatGPT and then edited to work with strings
+        // as well as the arrays and array lists needed to function in my code 
+        String keyPhrase = "new graph";
+        List<String[]> splitArrays = new ArrayList<>();
+        List<String> currentArray = new ArrayList<>();
+        for(String str : linesArrayGraph){
+            if(str.equals(keyPhrase)){
+                splitArrays.add(currentArray.toArray(new String[currentArray.size()]));
+                currentArray.clear();
+            }else{
+                // gets rid of the comments above each new graph
+                // also new graph line is not added to split array
+                // found .startswith from https://docs.oracle.com/javase/tutorial/java/data/comparestrings.html
+                if(str.startsWith("--") == false){
+                    currentArray.add(str);
+                }
+            }
+        }
+        // Adds the last array
+        splitArrays.add(currentArray.toArray(new String[currentArray.size()]));
+
+        // for testing
+        //System.out.println("Original Array: " + Arrays.toString(originalArray));
+        //System.out.println("Original Array: " + Arrays.toString(linesArrayGraph));
+
+        // first index will always be a useless blank array because
+        // of the removal of the comments and array splits at 'new graph'
+        splitArrays.remove(0);
+
+        // for testing
+        //System.out.println("Split Arrays:");
+        //for(String[] splitArray : splitArrays){
+        //    System.out.println(Arrays.toString(splitArray));
+        //}
+        //System.out.println(Arrays.toString(splitArrays.get(1)));
+
+        //prints out the graphs as matrixs
+        System.out.println("Matrix Form:");
+        for(String[] splitArray : splitArrays){
+            int vertexNum = 0;
+            for(String str : splitArray){
+                if(str.startsWith("add vertex")){
+                    vertexNum++;
+                }
+            }
+            // used for testing
+            System.out.println("Graph with " + vertexNum + " vertexs");
+            Graph graph = new Graph(vertexNum+1);
+            for(String str : splitArray){
+                int num1;
+                int num2;
+                if(str.startsWith("add edge")){
+                    String[] split = str.split(" ");
+                    // .parseInt was found here:
+                    // https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+                    num1 = Integer.parseInt(split[2]);
+                    num2 = Integer.parseInt(split[4]);
+                    graph.addEdge(num1, num2);
+                }
+            }
+            matrix matrix = graph.toMatrix();
+            matrix.print();
+            System.out.println("");
+        }
+
+        // adjacency list and matrix could be combined but I seperated them to make it look nice when printed
+
+        // prints the graphs as adjacency lists
+        System.out.println("Adjacency List Form:");
+        for(String[] splitArray : splitArrays){
+            int vertexNum = 0;
+            for(String str : splitArray){
+                if(str.startsWith("add vertex")){
+                    vertexNum++;
+                }
+            }
+            // used for testing
+            System.out.println("");
+            System.out.println("Graph with " + vertexNum + " vertexs");
+            Graph graph = new Graph(vertexNum+1);
+            for(String str : splitArray){
+                int num1;
+                int num2;
+                if(str.startsWith("add edge")){
+                    String[] split = str.split(" ");
+                    // .parseInt was found here:
+                    // https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+                    num1 = Integer.parseInt(split[2]);
+                    num2 = Integer.parseInt(split[4]);
+                    graph.addEdge(num1, num2);
+                }
+            }
+            // used ChatGPT for minor formatting help
+            ArrayList<ArrayList<Integer>> adjList = graph.toAdjList();
+            for(int i=0; i<adjList.size(); i++){
+                System.out.print(i + ": ");
+                for(int j=0; j<adjList.get(i).size(); j++){
+                    System.out.print(adjList.get(i).get(j) + " ");
+                }
+                System.out.println("");
+            }
+        }
+
+        // the reason this is seperated instead of combined is that same as I stated before
+        
+        //makes the graph as a linked object
+        System.out.println("");
+        System.out.println("Linked Object Form:");
+        int start = 1;
+        double totalTimeDepth = 0;
+        double totalTimeBreadth = 0;
+        long startTime;
+        long endTime;
+        long elapsedTime;
+        int timesRun = 0;
+        for(String[] splitArray : splitArrays){
+            // start index defaults to 0
+            int vertexNum = 0;
+            for(String str : splitArray){
+                // updates the start value for traversals based off the first index
+                // this was the only way I could figure out to hanled having
+                // starting vertecies of both 0 and 1 in the same file
+                if(str.equals("add vertex 0")){
+                    start = 0;
+                }
+                // used for testing
+                //System.out.println("start value: " + start);
+                if(str.startsWith("add vertex")){
+                    vertexNum++;
+                }
+            }
+            // used for testing
+            System.out.println("");
+            System.out.println("Graph with " + vertexNum + " vertexs");
+            linkedGraph linked = new linkedGraph(splitArray, vertexNum+1);
+            for(String str : splitArray){
+                int num1;
+                int num2;
+                if(str.startsWith("add edge")){
+                    String[] split = str.split(" ");
+                    // .parseInt was found here:
+                    // https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+                    num1 = Integer.parseInt(split[2]);
+                    num2 = Integer.parseInt(split[4]);
+                    linked.addEdge(num1, num2);
+                }
+            }
+            System.out.println("Depth first traversal: ");
+            startTime = System.nanoTime();
+            linked.depthFirstTraversal(start);
+            endTime = System.nanoTime();
+            elapsedTime = endTime - startTime;
+            totalTimeDepth = totalTimeDepth + elapsedTime;
+            System.out.println("Time in nanoseconds: ");
+            System.out.println(elapsedTime);
+
+            System.out.println("");
+
+            System.out.println("Breadth first traversal: ");
+            startTime = System.nanoTime();
+            linked.breadthFirstTraversal(start);
+            endTime = System.nanoTime();            
+            elapsedTime = endTime - startTime;
+            totalTimeBreadth = totalTimeBreadth + elapsedTime;
+        
+            System.out.println("");
+            System.out.println("Time in nanoseconds: ");
+            System.out.println(elapsedTime);
+            System.out.println(" ");
+
+            timesRun++;
+
+            // breath first should almost always be faster, however it is close
+        }
+        double averageTimeDepth = totalTimeDepth / timesRun;
+        System.out.println("Average depth first traversal time: ");
+        System.out.format("%.2f%n", averageTimeDepth);
+
+        double averageTimeBreadth = totalTimeBreadth / timesRun;
+        System.out.println("Average breadth first traversal time: ");
+        System.out.format("%.2f%n", averageTimeBreadth);
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Text File (magicitems)}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+I'm not putting all of the words here because it's 666 lines of text/code
+
+\subsubsection{Text File (magicitems-find-in-bst)}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+It is 42 words chosen from the magicitems text file that are searched for in the BST.
+
+\subsubsection{Text File (graphs1)}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+I'm not putting all of the words here because it's 375 lines of text/code that give the dimensions of the graphs I am printing and searching
+
+\end{document}

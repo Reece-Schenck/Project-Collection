@@ -1,0 +1,172 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CMPT xxx
+% Some Semester
+% Lab/Assignment/Project X
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+% Original author: % Frits Wenneker (http://www.howtotex.com)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% Modified by Alan G. Labouseur  - alan@labouseur.com
+% Further modified by Brian Gormanly - brian.gormanly@marist.edu (2023.1)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,xfrac} % Math packages
+%\usepackage{sectsty} % Allows customizing section commands
+\usepackage{graphicx}
+\usepackage[linesnumbered,commentsnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{parskip}
+\usepackage{lastpage}
+%\allsectionsfont{\normalfont\scshape} % Make all section titles in default font and small caps.
+\usepackage{titlesec}
+\usepackage[margin=1.25in]{geometry}
+
+\usepackage{fancyhdr} % Custom headers and footers
+%\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{page \thepage\ of \pageref{LastPage}} % Page numbering for right footer
+
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+%\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+%\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs.
+
+\binoppenalty=3000
+\relpenalty=3000
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+   \normalfont \normalsize 
+   \textsc{CMPT 435 - Spring 2023 - Prof. Gormanly} \\[10pt] % Header stuff.
+   \horrule{0.5pt} \\[0.25cm] 	% Top horizontal rule
+   \huge Lab 0  \\     	    % Assignment title
+   \horrule{0.5pt} \\[0.25cm] 	% Bottom horizontal rule
+}
+
+\author{Reece Schenck \\ \normalsize Reece.Schenck@Marist.edu}
+
+\date{\normalsize\today} 	% Today's date.
+
+\titleformat{\section}
+  {\normalfont\fontsize{15}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{11}{11}\bfseries}{\thesubsubsection}{1em}{}
+
+\begin{document}
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%   start PROBLEM ONE
+%----------------------------------------------------------------------------------------
+\section{Code}
+
+\subsection{ListItem.java}
+A public class (listItem) hold two parameters, an integer value and an instance of a listItem. This is done to allow each listItem to hold an individual value while also being connected to another listItem instance so that A chain of "nodes" can be created. This chain of "nodes" can then be used to something like a a binary search tree for example.
+
+\subsection{Main.java}
+In main I created a small example of linked listItems. The final listItem is linked to "null" meaning that it is the "end node". I also print out the attached values of the listItems using the "getValue" command defined in listItem.java.
+
+% Note bot the footnote and the citation in the above two lines.
+
+%----------------------------------------------------------------------------------------
+%   end PROBLEM ONE
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   REFERENCES
+%----------------------------------------------------------------------------------------
+% The following two commands are all you need in the initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{lab0} 
+% You must have a proper ".bib" file and remember to run:
+% latex bibtex latex latex
+% to resolve all references.
+
+\pagebreak
+
+%----------------------------------------------------------------------------------------
+%   Appendix
+%----------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+\subsection{ListItem.java}
+
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+public class listItem {
+    int value;
+    listItem listItem;
+
+    //item holds a value and is linked to another list item
+    public listItem(int value, listItem listItem){
+        this.value = value;
+        this.listItem = listItem;
+        getValue();
+    }
+
+    //gets value of node
+    public int getValue(){
+        return value;
+    }
+}
+\end{lstlisting}
+
+\subsection{Main.java}
+
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, basicstyle=\footnotesize\ttfamily}
+\begin{lstlisting}[frame=single, ]  
+public class Main {
+    public static void main(String[] args) {
+        //creates the linked listItems
+        //node4 does not link to another listItem
+        listItem node4 = new listItem(1, null);
+        listItem node3 = new listItem(2, node4);
+        listItem node2 = new listItem(3, node3);
+        listItem node1 = new listItem(4, node2);
+
+        //gets values of nodes and prints it
+        System.out.println(node1.getValue());
+        System.out.println(node2.getValue());
+        System.out.println(node3.getValue());
+        System.out.println(node4.getValue());
+    }
+}   
+\end{lstlisting}
+
+\end{document}
